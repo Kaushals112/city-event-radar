@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { EventCard } from "@/components/EventCard";
 import { Event, EventCategory, City } from "@/types/event";
@@ -8,8 +7,8 @@ import {
   Music, 
   Utensils, 
   Theater, 
-  Sports, 
-  Laptop 
+  Laptop,
+  Trophy 
 } from "lucide-react";
 
 interface EventGridProps {
@@ -75,7 +74,7 @@ export function EventGrid({ searchTerm, onGetTickets, selectedCity }: EventGridP
       case "Food":
         return <Utensils className="h-4 w-4 mr-2" />;
       case "Sports":
-        return <Sports className="h-4 w-4 mr-2" />;
+        return <Trophy className="h-4 w-4 mr-2" />;
       case "Theatre":
         return <Theater className="h-4 w-4 mr-2" />;
       case "Tech":
