@@ -1,16 +1,17 @@
 
 import { useState, useEffect } from "react";
 import { EventCard } from "@/components/EventCard";
-import { Event, EventCategory } from "@/types/event";
+import { Event, EventCategory, City } from "@/types/event";
 import { getEvents } from "@/services/eventService";
 import { Button } from "@/components/ui/button";
 
 interface EventGridProps {
   searchTerm: string;
   onGetTickets: (eventId: string) => void;
+  selectedCity: City;
 }
 
-export function EventGrid({ searchTerm, onGetTickets }: EventGridProps) {
+export function EventGrid({ searchTerm, onGetTickets, selectedCity }: EventGridProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,7 @@ export function EventGrid({ searchTerm, onGetTickets }: EventGridProps) {
     const fetchEvents = async () => {
       setLoading(true);
       try {
-        const data = await getEvents();
+        const data = await getEvents(undefined, selectedCity);
         setEvents(data);
         setFilteredEvents(data);
       } catch (error) {
@@ -33,7 +34,7 @@ export function EventGrid({ searchTerm, onGetTickets }: EventGridProps) {
     };
     
     fetchEvents();
-  }, []);
+  }, [selectedCity]);
   
   useEffect(() => {
     // Filter events based on category and search term
@@ -72,7 +73,7 @@ export function EventGrid({ searchTerm, onGetTickets }: EventGridProps) {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Upcoming Events</h2>
+        <h2 className="text-2xl font-bold mb-4">Upcoming Events in {selectedCity === 'All' ? 'Australia' : selectedCity}</h2>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <Button

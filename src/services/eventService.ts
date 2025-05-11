@@ -1,5 +1,5 @@
 
-import { Event, EventCategory } from "@/types/event";
+import { Event, EventCategory, City } from "@/types/event";
 
 // Mock data representing events scraped from various websites
 const mockEvents: Event[] = [
@@ -16,6 +16,7 @@ const mockEvents: Event[] = [
     ticketUrl: "https://sydneyoperahouse.com",
     price: "$85 - $250",
     organizer: "Sydney Symphony Orchestra",
+    city: "Sydney"
   },
   {
     id: "2",
@@ -30,6 +31,7 @@ const mockEvents: Event[] = [
     ticketUrl: "https://mca.com.au",
     price: "$25",
     organizer: "MCA Australia",
+    city: "Sydney"
   },
   {
     id: "3",
@@ -44,6 +46,7 @@ const mockEvents: Event[] = [
     ticketUrl: "https://sydneyfoodfestival.com.au",
     price: "$15 - $75",
     organizer: "Taste of Sydney",
+    city: "Sydney"
   },
   {
     id: "4",
@@ -58,6 +61,7 @@ const mockEvents: Event[] = [
     ticketUrl: "https://sydneyfc.com",
     price: "$35 - $120",
     organizer: "Football Australia",
+    city: "Sydney"
   },
   {
     id: "5",
@@ -72,6 +76,7 @@ const mockEvents: Event[] = [
     ticketUrl: "https://hamiltonmusical.com.au",
     price: "$70 - $250",
     organizer: "Capitol Theatre Productions",
+    city: "Sydney"
   },
   {
     id: "6",
@@ -86,6 +91,7 @@ const mockEvents: Event[] = [
     ticketUrl: "https://sydneytechsummit.com.au",
     price: "$199 - $499",
     organizer: "TechEvents Australia",
+    city: "Sydney"
   },
   {
     id: "7",
@@ -100,6 +106,7 @@ const mockEvents: Event[] = [
     ticketUrl: "https://jazzunderthestars.com.au",
     price: "$45",
     organizer: "Sydney Jazz Club",
+    city: "Sydney"
   },
   {
     id: "8",
@@ -114,18 +121,55 @@ const mockEvents: Event[] = [
     ticketUrl: "https://swf.org.au",
     price: "$0 - $45",
     organizer: "Sydney Writers' Festival Ltd",
+    city: "Sydney"
+  },
+  {
+    id: "9",
+    title: "Melbourne Coffee Festival",
+    description: "Celebrate Melbourne's world-famous coffee culture with tastings, workshops, and competitions showcasing the city's best baristas and roasters.",
+    date: "2025-06-05",
+    time: "10:00 - 18:00",
+    venue: "Melbourne Convention Centre",
+    address: "1 Convention Centre Pl, South Wharf VIC 3006",
+    category: "Food",
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    ticketUrl: "https://melbournecoffeefestival.com.au",
+    price: "$25",
+    organizer: "Coffee Victoria",
+    city: "Melbourne"
+  },
+  {
+    id: "10",
+    title: "Brisbane Comedy Festival",
+    description: "Laugh until your sides hurt at this annual comedy extravaganza featuring local and international stand-up comedians, improv troupes, and comedy shows.",
+    date: "2025-05-20",
+    time: "19:30",
+    venue: "Brisbane Powerhouse",
+    address: "119 Lamington St, New Farm QLD 4005",
+    category: "Theatre",
+    image: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+    ticketUrl: "https://brisbanecomedyfestival.com",
+    price: "$35 - $75",
+    organizer: "Brisbane Powerhouse",
+    city: "Brisbane"
   }
 ];
 
-export const getEvents = (category?: EventCategory): Promise<Event[]> => {
+export const getEvents = (category?: EventCategory, city?: City): Promise<Event[]> => {
   return new Promise((resolve) => {
     // Simulate API call delay
     setTimeout(() => {
-      if (!category || category === 'All') {
-        resolve(mockEvents);
-      } else {
-        resolve(mockEvents.filter(event => event.category === category));
+      let filteredEvents = [...mockEvents];
+      
+      if (category && category !== 'All') {
+        filteredEvents = filteredEvents.filter(event => event.category === category);
       }
+      
+      if (city && city !== 'All') {
+        filteredEvents = filteredEvents.filter(event => event.city === city);
+      }
+      
+      resolve(filteredEvents);
     }, 500);
   });
 };
@@ -157,4 +201,27 @@ export const refreshEventData = (): Promise<boolean> => {
       resolve(true);
     }, 1000);
   });
+};
+
+// New function to explain how the scraping logic works in a real implementation
+export const getScrapingInfo = (): { steps: string[], technologies: string[] } => {
+  return {
+    steps: [
+      "1. Schedule regular crawls of event websites using a serverless function",
+      "2. Parse HTML content from these websites using libraries like Cheerio",
+      "3. Extract structured data for event details (title, date, venue, etc.)",
+      "4. Clean and normalize the data to ensure consistency",
+      "5. Store events in a database with timestamps for updates",
+      "6. Set up a deduplication system to avoid duplicate events",
+      "7. Provide API endpoints to query events by city, category, and date"
+    ],
+    technologies: [
+      "Node.js for serverless functions",
+      "Cheerio/JSDOM for HTML parsing",
+      "Axios for HTTP requests",
+      "Supabase/PostgreSQL for data storage",
+      "Cron jobs for scheduling regular scrapes",
+      "OpenAI API for content categorization"
+    ]
+  };
 };

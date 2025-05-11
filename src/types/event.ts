@@ -12,6 +12,7 @@ export interface Event {
   ticketUrl: string;
   price: string;
   organizer: string;
+  city: string;
 }
 
 export type EventCategory = 'Music' | 'Art' | 'Food' | 'Sports' | 'Theatre' | 'Tech' | 'All';
@@ -21,3 +22,5 @@ export interface EmailSubscription {
   eventId: string;
   marketingConsent: boolean;
 }
+
+export type City = 'Sydney' | 'Melbourne' | 'Brisbane' | 'Perth' | 'Adelaide' | 'All';
