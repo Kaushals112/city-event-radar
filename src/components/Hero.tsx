@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { CitySelector } from "@/components/CitySelector";
+import { ScrapingSimulationButton } from "@/components/ScrapingSimulationButton";
 import { City } from "@/types/event";
 
 interface HeroProps {
@@ -24,7 +25,7 @@ export function Hero({ onCityChange, selectedCity, onHowItWorksClick }: HeroProp
           <p className="text-lg text-sydney-light mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Find and attend the most exciting events happening across Australia. Updated daily with fresh listings.
           </p>
-          <div className="flex space-x-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <Button 
               size="lg" 
               className="bg-sydney-coral hover:bg-sydney-coral/90"
@@ -40,6 +41,7 @@ export function Hero({ onCityChange, selectedCity, onHowItWorksClick }: HeroProp
             >
               How It Works
             </Button>
+            <ScrapingSimulationButton />
           </div>
         </div>
       </div>

@@ -152,7 +152,128 @@ const mockEvents: Event[] = [
     price: "$35 - $75",
     organizer: "Brisbane Powerhouse",
     city: "Brisbane"
-  }
+  },
+  // Adding more events for other cities and categories to ensure we have full coverage
+  {
+    id: "11",
+    title: "Perth Food & Wine Festival",
+    description: "A weekend celebration of Western Australia's finest culinary traditions, featuring local chefs, wineries, and food producers.",
+    date: "2025-06-08",
+    time: "11:00 - 20:00",
+    venue: "Elizabeth Quay",
+    address: "The Esplanade, Perth WA 6000",
+    category: "Food",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    ticketUrl: "https://perthfoodfestival.com.au",
+    price: "$20 - $85",
+    organizer: "Taste of Perth",
+    city: "Perth"
+  },
+  {
+    id: "12",
+    title: "Adelaide Fringe Festival",
+    description: "Australia's second-largest annual arts festival featuring over 1,200 events across Adelaide, from comedy to cabaret, theatre to visual arts.",
+    date: "2025-05-15",
+    time: "Various times",
+    venue: "Various venues across Adelaide",
+    address: "Adelaide SA 5000",
+    category: "Art",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    ticketUrl: "https://adelaidefringe.com.au",
+    price: "$15 - $60",
+    organizer: "Adelaide Fringe Inc",
+    city: "Adelaide"
+  },
+  {
+    id: "13",
+    title: "Melbourne Tech Week",
+    description: "Australia's largest technology conference bringing together innovators, entrepreneurs, and industry leaders to showcase cutting-edge technology.",
+    date: "2025-06-20",
+    time: "09:00 - 18:00",
+    venue: "Melbourne Exhibition Centre",
+    address: "2 Clarendon St, South Wharf VIC 3006",
+    category: "Tech",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    ticketUrl: "https://melbournetechweek.com.au",
+    price: "$150 - $450",
+    organizer: "Victorian Innovation Hub",
+    city: "Melbourne"
+  },
+  {
+    id: "14",
+    title: "Brisbane Lions vs Gold Coast Suns",
+    description: "The Queensland derby comes to the Gabba as the Brisbane Lions face off against the Gold Coast Suns in this AFL clash.",
+    date: "2025-05-30",
+    time: "19:20",
+    venue: "The Gabba",
+    address: "Vulture St, Woolloongabba QLD 4102",
+    category: "Sports",
+    image: "https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
+    ticketUrl: "https://afl.com.au/tickets",
+    price: "$25 - $95",
+    organizer: "Australian Football League",
+    city: "Brisbane"
+  },
+  {
+    id: "15",
+    title: "Adelaide Symphony Orchestra: Film Classics",
+    description: "Experience the magic of film scores performed live by the Adelaide Symphony Orchestra, featuring music from iconic movies across decades.",
+    date: "2025-06-12",
+    time: "19:30",
+    venue: "Adelaide Festival Centre",
+    address: "King William St, Adelaide SA 5000",
+    category: "Music",
+    image: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    ticketUrl: "https://adelaidesymphony.com.au",
+    price: "$60 - $150",
+    organizer: "Adelaide Symphony Orchestra",
+    city: "Adelaide"
+  },
+  {
+    id: "16",
+    title: "Perth Theatre Company: Macbeth",
+    description: "A modern interpretation of Shakespeare's darkest tragedy, exploring ambition, madness, and the supernatural in this acclaimed production.",
+    date: "2025-05-22",
+    time: "19:00",
+    venue: "Heath Ledger Theatre",
+    address: "174-176 William St, Perth WA 6000",
+    category: "Theatre",
+    image: "https://images.unsplash.com/photo-1503095396549-807759245b35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    ticketUrl: "https://perththeatre.com.au",
+    price: "$45 - $115",
+    organizer: "Perth Theatre Company",
+    city: "Perth"
+  },
+  {
+    id: "17",
+    title: "Melbourne Cricket Ground: Test Match",
+    description: "Australia takes on England in this highly anticipated cricket test match at the iconic MCG.",
+    date: "2025-06-18",
+    time: "10:00 - 17:00",
+    venue: "Melbourne Cricket Ground",
+    address: "Brunton Ave, Richmond VIC 3002",
+    category: "Sports",
+    image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1747&q=80",
+    ticketUrl: "https://cricket.com.au/tickets",
+    price: "$30 - $150",
+    organizer: "Cricket Australia",
+    city: "Melbourne"
+  },
+  {
+    id: "18",
+    title: "Perth Developer Conference",
+    description: "A gathering of software developers, designers and tech entrepreneurs to share knowledge and network across various technology domains.",
+    date: "2025-06-25",
+    time: "09:00 - 17:00",
+    venue: "Perth Convention Centre",
+    address: "21 Mounts Bay Rd, Perth WA 6000",
+    category: "Tech",
+    image: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    ticketUrl: "https://perthdevcon.com",
+    price: "$180 - $320",
+    organizer: "Perth Tech Association",
+    city: "Perth"
+  },
 ];
 
 export const getEvents = (category?: EventCategory, city?: City): Promise<Event[]> => {
@@ -223,5 +344,48 @@ export const getScrapingInfo = (): { steps: string[], technologies: string[] } =
       "Cron jobs for scheduling regular scrapes",
       "OpenAI API for content categorization"
     ]
+  };
+};
+
+// New function to simulate the web scraping process in a more detailed way
+export const simulateWebScraping = (targetSite: string): Promise<{success: boolean, eventCount: number}> => {
+  return new Promise((resolve) => {
+    console.log(`Simulating web scraping for ${targetSite}...`);
+    
+    // This would be a real web scraping operation in production
+    setTimeout(() => {
+      // In reality, this would return actual scraped events
+      resolve({
+        success: true,
+        eventCount: Math.floor(Math.random() * 20) + 5 // Simulate finding 5-25 events
+      });
+    }, 1500);
+  });
+};
+
+// New function to demonstrate how events would be extracted from HTML
+export const extractEventFromHtml = (html: string): Partial<Event> | null => {
+  // In a real implementation, this would use Cheerio or JSDOM to parse HTML
+  // and extract event details based on CSS selectors or XPath
+  
+  // This is a dummy implementation
+  if (!html || html.trim().length === 0) {
+    return null;
+  }
+  
+  // Simulate parsing HTML
+  console.log("Extracting event data from HTML snippet");
+  
+  // In reality, we would have code like:
+  // const $ = cheerio.load(html);
+  // const title = $('h1.event-title').text();
+  // const date = $('.event-date').text();
+  // etc.
+  
+  return {
+    title: "Extracted Event Title",
+    date: "2025-06-30",
+    venue: "Extracted Venue Name",
+    category: "Music"
   };
 };

@@ -4,6 +4,13 @@ import { EventCard } from "@/components/EventCard";
 import { Event, EventCategory, City } from "@/types/event";
 import { getEvents } from "@/services/eventService";
 import { Button } from "@/components/ui/button";
+import { 
+  Music, 
+  Utensils, 
+  Theater, 
+  Sports, 
+  Laptop 
+} from "lucide-react";
 
 interface EventGridProps {
   searchTerm: string;
@@ -60,6 +67,24 @@ export function EventGrid({ searchTerm, onGetTickets, selectedCity }: EventGridP
     setSelectedCategory(category);
   };
   
+  // Helper function to get category icon
+  const getCategoryIcon = (category: EventCategory) => {
+    switch(category) {
+      case "Music":
+        return <Music className="h-4 w-4 mr-2" />;
+      case "Food":
+        return <Utensils className="h-4 w-4 mr-2" />;
+      case "Sports":
+        return <Sports className="h-4 w-4 mr-2" />;
+      case "Theatre":
+        return <Theater className="h-4 w-4 mr-2" />;
+      case "Tech":
+        return <Laptop className="h-4 w-4 mr-2" />;
+      default:
+        return null;
+    }
+  };
+  
   if (loading) {
     return (
       <div className="container mx-auto py-8 px-4">
@@ -82,6 +107,7 @@ export function EventGrid({ searchTerm, onGetTickets, selectedCity }: EventGridP
               onClick={() => handleCategoryChange(category)}
               className={selectedCategory === category ? "bg-sydney-blue hover:bg-sydney-blue/90" : ""}
             >
+              {getCategoryIcon(category)}
               {category}
             </Button>
           ))}
