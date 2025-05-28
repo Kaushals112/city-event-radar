@@ -1,12 +1,11 @@
-
 import { useState } from "react";
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogHeader, 
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
   DialogTitle,
   DialogFooter,
-  DialogDescription
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,30 +27,27 @@ export function EmailModal({ event, isOpen, onClose }: EmailModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
     if (!event) return;
-    
+
     setIsSubmitting(true);
-    
+
     try {
       await subscribeToEvent(email, event.id, marketingConsent);
-      
+
       toast({
         title: "Success!",
         description: "Redirecting you to the ticket page...",
         duration: 3000,
       });
-      
-      // After short delay, redirect user to the original ticket URL
+
       setTimeout(() => {
         window.open(event.ticketUrl, "_blank");
         onClose();
         setEmail("");
         setMarketingConsent(false);
       }, 1000);
-      
     } catch (error) {
       console.error("Error subscribing:", error);
       toast({
@@ -76,12 +72,12 @@ export function EmailModal({ event, isOpen, onClose }: EmailModalProps) {
             Please enter your email to continue to the ticket provider's website.
           </DialogDescription>
         </DialogHeader>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email address</Label>
-            <Input 
-              id="email" 
+            <Input
+              id="email"
               type="email"
               placeholder="you@example.com"
               value={email}
@@ -90,30 +86,30 @@ export function EmailModal({ event, isOpen, onClose }: EmailModalProps) {
               disabled={isSubmitting}
             />
           </div>
-          
+
           <div className="flex items-center space-x-2">
-            <Checkbox 
-              id="marketing" 
-              checked={marketingConsent} 
-              onCheckedChange={(checked) => setMarketingConsent(!!checked)}
+            <Checkbox
+              id="marketing"
+              checked={marketingConsent}
+              onCheckedChange={(checked: boolean) => setMarketingConsent(checked)}
               disabled={isSubmitting}
             />
             <Label htmlFor="marketing">
               Send me updates about upcoming events in Sydney
             </Label>
           </div>
-          
+
           <DialogFooter className="sm:justify-between mt-4">
-            <Button 
-              type="button" 
-              variant="outline" 
+            <Button
+              type="button"
+              variant="outline"
               onClick={onClose}
               disabled={isSubmitting}
             >
               Cancel
             </Button>
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="bg-sydney-coral hover:bg-sydney-coral/90"
               disabled={isSubmitting}
             >
