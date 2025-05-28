@@ -21,12 +21,7 @@ export function HowItWorksModal({ isOpen, onClose }: HowItWorksModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-sydney-navy">How EventFinder Works</DialogTitle>
-          <DialogDescription className="text-sydney-navy/70">
-            Our web scraping system automatically collects event data from various sources
-          </DialogDescription>
-        </DialogHeader>
+       
         <Button 
           className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground" 
           onClick={onClose}
