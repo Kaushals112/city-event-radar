@@ -62,5 +62,7 @@ export function HowItWorksModal({ isOpen, onClose }: HowItWorksModalProps) {
         </div>
       </DialogContent>
     </Dialog>
+
+    // djjdjjd
   );
 }
